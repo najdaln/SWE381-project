@@ -208,7 +208,6 @@ header button:hover {
 }
 
 
-//new
 .dropdown>a .caret {
     border-top-color: #FFFFFF
   }
