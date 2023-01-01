@@ -704,7 +704,7 @@ input::placeholder {
   }
   
   .image{
-      background-image: url(image/job.jpeg);
+      background-image: url(images/job.jpeg);
       height: 100%;
       width: 50%;
       background-size: cover;
