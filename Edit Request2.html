@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Job offer</title>
+
+        <link rel="stylesheet" href="project.css">
+    </head>
+
+    <body>
+        
+        <header id="navbar" >
+            <nav class="navbar-container">
+    <!-- logo -->
+          <a href="Home page.html" id="l"></a> <img class="logo" src="Logo.PNG" alt="logo"> </a>
+
+    <!-- الزر الي يظهر عند التصغير  -->
+          <button type="button" id="navbar-toggle" aria-controls="navbar-menu"  aria-label="Toggle menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+    <!--العناصر الي بتوجد في الهيدر + في الزر عند التصغير  -->
+          <div id="navbar-menu" aria-labelledby="navbar-toggle">
+              <ul class="nav__links">
+                 <li class="navbar-item"><a href="#" class="nav__link" >Home</a> </li>
+                 <li class="navbar-item"><a href="#" class="nav__link">About us</a></li>
+                  <li class="navbar-item"><a href="mailto:LearnInfo.sa@gmail.com" class="nav__link">Contact us</a></li>
+                  <li class="navbar-item"> <a class="Sign" href="Sign in.html"><button>Login</button></a></li>
+                </ul>
+
+             </div>
+         </nav>
+        </header>
+
+        <footer class="navbar">
+            <p>Copyright &copy; 2023 online tutoring platform <br>
+            <a href="mailto:LearnInfo.sa@gmail.com" style=" color: #8c7569 ;">Contact Us
+            <img src="images/email_icon.png" alt="Contact Us"></a></p>   
+         </footer>
+  
+
+        <div class="request">
+
+            <div class="image"></div>
+
+                <form>
+                  <div class="req-left-block">
+                  <div class="h1"><h2>Edit job request</h2></div>
+                  <div class="h1"><h4>Please fill up your kid's information:</h4></div>
+
+                  
+
+                  <div class="input-block"><label class="input-label">Name: <input name="name" type="text" placeholder="Name" value="Mohamad"></label></div>
+            
+                  <div class="input-block"><label class="input-label">Age: <input name="age" type="number" placeholder="Age" value="5"></label></div>
+             
+                  <div class="input-block"><label class="input-label">Type of class: 
+                  <select name="type">
+                    <option>----</option>
+                    <option selected>Arabic</option>
+                    <option>English</option>
+                    <option>Math</option>
+                    <option>Physics</option>
+                    <option>Biology</option>
+                    <option>Chemistry</option>
+                    <option>other</option></label>
+                  </select></div>
+            
+                  <div class="input-block"><label class="input-label">Start Date:
+                  <input name="date" type="date" value="2023-01-20">
+                  </label>
+
+                  <label class="input-label">End Date:
+                  <input name="date" type="date" value="2023-02-15">
+                  </label></div>
+
+                  <div class="input-block"><label class="input-label">Start time:
+                  <input name="date" type="text" value="6:00 PM">
+                  </label>
+
+                  <label class="input-label">End time:
+                  <input name="date" type="text" value="7:00 PM">
+                  </label></div>
+                  
+                 </div>
+                </form>
+                <div class="edit-button"><a href="Request list.html"><button type="submit">Confirm</button></a></div>
+        </div>
+      
+    </body>
+</html>
