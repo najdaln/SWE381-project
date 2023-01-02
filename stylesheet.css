@@ -693,7 +693,7 @@ input::placeholder {
   ----------------------------------------------  Sign up page ---------------------------------------------- 
 ===============================================================================================================*/  
 #parent-signup{
-    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h4.jpg);
+    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h1.jpg);
     background-size:cover;
     background-position:center ;
     background-attachment:fixed;
