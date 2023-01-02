@@ -816,16 +816,6 @@ button:hover {
   background-color: #CE9F9B;
 }
 
-.request .input-label {
-font-size: 13px;
-text-transform: uppercase;
-font-family: "Nunito", sans-serif;
-font-weight: 600;
-letter-spacing: 0.7px;
-color: #8c7569;
-transition: 0.3s;
-}
-
 .request{
   position: absolute; 
     top: 50%;
@@ -842,26 +832,25 @@ transition: 0.3s;
     overflow: hidden;   
 }
 
+#req{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  left: 0%;
+  top: 0%;
+  transform: translate(35%,-1%);
+  margin-top: 4%;
+  margin-bottom: 5%;
+  width: 60%; 
+  display: flex;
+  flex-direction:column; 
+}
+
 @media screen and (max-width: 1000px){
-  .request{
-      margin-top: 10%;
+  #req{
+    margin-top: 8%;
+    margin-bottom: 10%;
   }
-}
-
-@media screen and (max-width: 700px){
-  .request{
-      margin-top: 15%;
-  }
-}
-
-.image{
-  background-image: url(image/job.jpeg);
-  height: 100%;
-  width: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: fixed;
-  transform: translate(100%,0%);
 }
 
 .req-left-block{
@@ -874,75 +863,6 @@ margin-top: 2%;
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1200px){
-  .image{
-      display: none;
-  }
-}
-
-.modal-right image{
-background-position:right;
-background-repeat: no-repeat;
-place-items: right;
-
-}
-
-select{
-  border: none;
-}
-
-.req-button{
-  position: fixed;
-  padding-top: 2%;
-  padding-left: 15%;
-}
-
-input[type="submit"]{
-  padding: 9px 60px;
-  outline: none;
-  border: 0;
-  color: #fff;
-  border-radius: 40px;
-  background: #8c7569;
-  font-family: "Nunito", sans-serif;
-  transition: 0.3s;
-  cursor: pointer;
-  text-align: center;
-}
-
-input[type="submit"]:hover {
-  background: #CEB0AE;
-}
-
-.request .input-block {
-width: 60%;
-height: 5%;
-padding: 5px;
-border: 2px solid #B0A29B;
-border-radius: 4px;
-margin-bottom: 10px;
-transition: 0.3s;
-background-color: #fff; 
-}
-
-.request .input-block input {
-outline: 0;
-border: 0;
-background-color: rgb(255, 255, 255); 
-padding: 5px;
-font-size: 14px;
-font-family: "Nunito", sans-serif;
-}
-      
-input::placeholder {
-  color: #ccc;
-  opacity: 1;
-}
-
-input{
-  display: block;
-}
-
 /*Request*/
 .request-block{
   position: relative;
@@ -950,11 +870,9 @@ border: 2px solid #B0A29B;
 border-radius: 4px;
 margin-bottom: 20px;
 margin-top: 20px;
-
-
 transition: 0.3s;
 background-color: #fff; 
-width: 71%;
+width: 85%;
 height: 25%;
 overflow: hidden;
 }
@@ -1039,7 +957,8 @@ background-attachment: fixed;
   font-weight: 600;
   letter-spacing: 0.px;
   transition: 0.3s;
-  padding-top: 40px;
+  padding-top: 35px;
+  overflow: hidden;
   }
 
 .offer-p ::after{
@@ -1051,7 +970,12 @@ background-attachment: fixed;
       float: right;
       margin-right: -90px;
       margin-top: 40px;
+      
   }
+
+  .request-button3 button{
+    background-color: rgb(115, 169, 135);
+}
 
   .request-button4{
       float: right;
