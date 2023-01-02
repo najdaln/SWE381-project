@@ -1050,7 +1050,7 @@ background-attachment: fixed;
 
 .shad{
   padding: 1%;
-  height: 20%;
+  height: 10%;
   width: 70%;
   color:  #555;
   border-radius: 5px;
@@ -1152,18 +1152,25 @@ background-attachment: fixed;
       }
 
 
-.button-review {
+.btn-contcat{
   margin-left: 25%;
   margin-top: 100%;
-     font-family: "Nunito",sans-serif;
     background-color:#8064646b;
     border-radius: 30px;
     color: #40405B;
     font-size: large;
-
-      
-      margin-left: -90px;
-      margin-top: 90%;
+    margin-left: -90px;
+    margin-top: 90%;
+}
+.button-review {
+  margin-left: 25%;
+  margin-top: 100%;
+    background-color:#8064646b;
+    border-radius: 30px;
+    color: #40405B;
+    font-size: large;
+    margin-left: -90px;
+    margin-top: 90%;
       
   }
 
