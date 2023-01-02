@@ -800,4 +800,284 @@ input::placeholder {
     color: #ccc;
     opacity: 1;
 }
+button{
+  position: relative;
+  padding: 5px 25px;
+  background-color:#a9807d ;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: #F5F3F2; 
+  z-index: 2; 
+}
+
+button:hover {
+  background-color: #CE9F9B;
+}
+
+.request .input-label {
+font-size: 13px;
+text-transform: uppercase;
+font-family: "Nunito", sans-serif;
+font-weight: 600;
+letter-spacing: 0.7px;
+color: #8c7569;
+transition: 0.3s;
+}
+
+.request{
+  height: 70%;
+  width: 71%;
+  position: absolute;
+  background-color: #cdbdb6;
+  color: rgb(69, 57, 44);
+  border-radius: 20px;
+  transform: translate(20%,7%);
+  overflow: scroll;
+ margin-top: 6%;
+
+}
+
+@media screen and (max-width: 1000px){
+  .request{
+      margin-top: 10%;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .request{
+      margin-top: 15%;
+  }
+}
+
+.image{
+  background-image: url(image/job.jpeg);
+  height: 100%;
+  width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  transform: translate(100%,0%);
+}
+
+.req-left-block{
+  position: relative;
+  margin-left: 28%;
+margin-top: 2%;
+}
+
+.h1{
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1200px){
+  .image{
+      display: none;
+  }
+}
+
+.modal-right image{
+background-position:right;
+background-repeat: no-repeat;
+place-items: right;
+
+}
+
+select{
+  border: none;
+}
+
+.req-button{
+  position: fixed;
+  padding-top: 2%;
+  padding-left: 15%;
+}
+
+input[type="submit"]{
+  padding: 9px 60px;
+  outline: none;
+  border: 0;
+  color: #fff;
+  border-radius: 40px;
+  background: #8c7569;
+  font-family: "Nunito", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="submit"]:hover {
+  background: #CEB0AE;
+}
+
+.request .input-block {
+width: 60%;
+height: 5%;
+padding: 5px;
+border: 2px solid #B0A29B;
+border-radius: 4px;
+margin-bottom: 10px;
+transition: 0.3s;
+background-color: #fff; 
+}
+
+.request .input-block input {
+outline: 0;
+border: 0;
+background-color: rgb(255, 255, 255); 
+padding: 5px;
+font-size: 14px;
+font-family: "Nunito", sans-serif;
+}
+      
+input::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+input{
+  display: block;
+}
+
+/*Request*/
+.request-block{
+  position: relative;
+  transform: translate(20%,7%);
+border: 2px solid #B0A29B;
+border-radius: 4px;
+margin-bottom: 20px;
+margin-top: 20px;
+transition: 0.3s;
+background-color: #fff; 
+width: 71%;
+height: 20%;
+overflow: auto;
+}
+
+#heading{
+text-align: center;
+  transform: translate(0,25%);
+color: #8e5757;
+z-index: 1;
+margin-top: 10px;
+}
+
+.request-p{ 
+font-size: 13px;
+font-family: "Nunito", sans-serif;
+font-weight: 600;
+letter-spacing: 0.7px;
+transition: 0.3s;
+padding-top: 10px;
+}
+
+.modal-left .request-p {
+  margin-left: 50px;
+   overflow: hidden;
+}
+
+.request-p ::after{
+  content:"\a" ;
+  white-space: pre;
+}
+
+.request-p span{
+  text-indent: none;
+  color: #806464;
+}
+
+.ID{
+ float: left;
+ position: relative;
+ margin: 13px;
+ background-color: #E6D6D5;
+ border:#E6D6D5 30px solid;
+ border-radius: 4px;
+ background-attachment: fixed\;
+}
+
+
+.request-button{
+float: right;
+margin-right: 10px;
+margin-top: 10px;
+background-attachment: scroll;
+}
+
+  
+.request-button1{
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-attachment: scroll;
+ }
+ 
+.request-button2{
+  float: right;
+margin-right: -75px;
+margin-top: 40px;
+background-attachment: fixed;
+}
+
+
+
+.request-button2 button{
+  background-color: rgb(238, 96, 96);
+  width: 75px;
+  padding-left: 20%;
+  
+}
+
+/*offer*/
+.offer-p{ 
+  font-size: 13px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.px;
+  transition: 0.3s;
+  padding-top: 40px;
+  }
+
+.offer-p ::after{
+      content:"\a" ;
+      white-space: pre;
+  }
+
+  .request-button3{
+      float: right;
+      margin-right: -90px;
+      margin-top: 40px;
+  }
+
+  .request-button4{
+      float: right;
+      margin-right: -90px;
+      margin-top: 70px;
+  }
+
+  .request-button4 button{
+      background-color: rgb(238, 96, 96);
+  }
+
+  .edit-button button{
+      padding: 9px 60px;
+  outline: none;
+  border: 0;
+  color: #fff;
+  border-radius: 40px;
+  background: #8c7569;
+  font-family: "Nunito", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  margin-left: 43%;
+  }
+
+  .edit-button button:hover {
+      background: #CEB0AE;
+  }
+
+  
   
