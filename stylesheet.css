@@ -682,7 +682,7 @@ input::placeholder {
       height: 70%;
       width: 71%;
       position: absolute;
-      background-color: #cdbdb6;
+      background-color: #E9E5DF;
       color: rgb(69, 57, 44);
       border-radius: 20px;
       transform: translate(20%,7%);
@@ -824,7 +824,7 @@ input::placeholder {
   padding-top: 10px;
   }
   
-  .modal-left .request-p {
+.request-p {
       margin-left: 50px;
        overflow: hidden;
   }
@@ -930,4 +930,38 @@ input::placeholder {
       .edit-button button:hover {
           background: #CEB0AE;
       }
+
+      button{
+    position: relative;
+    padding: 5px 25px;
+    background-color:#a9807d ;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #F5F3F2; 
+    z-index: 2; 
+}
+
+button:hover {
+    background-color: #CE9F9B;
+}
+
+button{
+  position: relative;
+  padding: 5px 25px;
+  background-color:#a9807d ;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: #F5F3F2; 
+  z-index: 2; 
+}
+
+button:hover {
+  background-color: #CE9F9B;
+}
+
+      
   
