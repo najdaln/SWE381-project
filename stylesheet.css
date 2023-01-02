@@ -1175,7 +1175,11 @@ background-attachment: fixed;
   }
 
 
-
-
+/* ======================= 
+      Start Rating
+========================*/  
+  .checked {
+    color: rgb(221, 255, 0);
+     }
   
   
