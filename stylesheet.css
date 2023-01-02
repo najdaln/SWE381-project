@@ -10,7 +10,6 @@ height: 100%;
 font-family: "Nunito", sans-serif;
 line-height: 1.5;
 -webkit-text-size-adjust: 100%;
-
 }
 
 
@@ -290,8 +289,8 @@ footer {
 }
 #page_footer{
     background-color: #d3ccbf00;
-    background-color: #D3CCBF;
-    
+        background-color: #D3CCBF;
+
     box-shadow:none;
     color: #40405B; 
     text-align: center;
@@ -503,7 +502,7 @@ margin:0px;
 
 
 /* ============================================================================================================ 
-  ----------------------------------------------  Sign in/up page ---------------------------------------------- 
+  ----------------------------------------------  Sign in page ---------------------------------------------- 
 ===============================================================================================================*/    
 
 .modal{
@@ -518,7 +517,7 @@ margin:0px;
     transition: 0.4s;
     display: flex;
     flex-direction:row;
-     align-items: center;
+    align-items: center;
     justify-content: center;
     max-width:85%;
     overflow: hidden;   
@@ -529,6 +528,7 @@ margin:0px;
     font-weight: 600;
     color: #40405B;
     padding-bottom: 5px;
+    
   }
   .modal  .p{
     font-size: 16px; 
@@ -538,6 +538,18 @@ margin:0px;
     padding-bottom: 35px;
 }
 
+ #modal-left-req h1 {
+    font-size: 30px;
+    padding-bottom: 0%;
+  }
+
+#modal-left-req .p {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+
+
+  
 /* ======================= 
         modal-right
 ========================*/    
@@ -560,6 +572,17 @@ margin:0px;
     right: 0;
     top: 0; 
 }
+.req__img{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit:cover; 
+    width: 60vh;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+    top: 0; 
+}
+
 
 /* ======================= 
         modal-left
@@ -571,14 +594,13 @@ margin:0px;
     opacity: 1;
     background-color: #e9e5df83;
     padding: 80px;
-
   }
 
-#sign_up{
-    padding: 20px;
-
-
-
+  #modal-left-req{
+    padding :50px;
+    justify-content:center;
+    align-items: center;
+    
   }
 
 .modal-buttons{
@@ -607,6 +629,7 @@ margin:0px;
     color:#363030;
     font-size: 16px;
     font-weight: 600;
+    justify-content:center;
 }
   
 .input-button:hover {
@@ -663,305 +686,118 @@ input::placeholder {
  .modal a:hover {
     color: #CE9F9B;
     font-size: 17px; 
+}
 
 
+/* ============================================================================================================ 
+  ----------------------------------------------  Sign up page ---------------------------------------------- 
+===============================================================================================================*/  
+#parent-signup{
+    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h4.jpg);
+    background-size:cover;
+    background-position:center ;
+    background-attachment:fixed;
+   }
+
+
+#tutor-signup{
+    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h3.jpg);
+    background-size:cover;
+    background-position:center ;
+    background-attachment:fixed;
+   }
+
+
+#modal_sign_up{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    left: 0%;
+    top: 0%;
+    transform: translate(35%,-1%);
+    margin-top: 5%;
+    margin-bottom: 0%;
+    width: 60%; 
+    display: flex;
+    flex-direction:column;  
+}
+
+#modal_sign_up h1 {
+    text-align: center;
+    font-size: 30px;
+    
+
+    
   }
+#modal_sign_up .p {
+    text-align: center;  
+    padding-bottom: 10px;  
+  }
+
 
  
-.request .input-label {
-  font-size: 13px;
-  text-transform: uppercase;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-  color: #8c7569;
-  transition: 0.3s;
-  }
-  
-  .request{
-      height: 70%;
-      width: 71%;
-      position: absolute;
-      background-color: #E9E5DF;
-      color: rgb(69, 57, 44);
-      border-radius: 20px;
-      transform: translate(20%,7%);
-      overflow: scroll;
-     margin-top: 6%;
+  .choose_button{
+    opacity: 0;
+    overflow: hidden;
     
   }
   
-  @media screen and (max-width: 1000px){
-      .request{
-          margin-top: 10%;
-      }
-  }
-  
-  @media screen and (max-width: 700px){
-      .request{
-          margin-top: 15%;
-      }
-  }
-  
-  .image{
-      background-image: url(images/job.jpeg);
-      height: 100%;
-      width: 50%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: fixed;
-      transform: translate(100%,0%);
-  }
-  
-  .req-left-block{
-      position: relative;
-      margin-left: 28%;
-  margin-top: 2%;
-  }
-  
-  .h1{
-      margin-bottom: 10px;
-  }
-  
-  @media screen and (max-width: 1200px){
-      .image{
-          display: none;
-      }
-  }
-  
-  .modal-right image{
-    background-position:right;
-    background-repeat: no-repeat;
-    place-items: right;
-  
-  }
-  
-  select{
-      border: none;
-  }
-  
-  .req-button{
-      position: fixed;
-      padding-top: 2%;
-      padding-left: 15%;
-  }
-  
-  input[type="submit"]{
-      padding: 9px 60px;
-      outline: none;
-      border: 0;
-      color: #fff;
-      border-radius: 40px;
-      background: #8c7569;
-      font-family: "Nunito", sans-serif;
-      transition: 0.3s;
-      cursor: pointer;
-      text-align: center;
-  }
-  
-  input[type="submit"]:hover {
-      background: #CEB0AE;
-  }
-  
-  .request .input-block {
-  width: 60%;
-  height: 5%;
-  padding: 5px;
-  border: 2px solid #B0A29B;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  transition: 0.3s;
-  background-color: #fff; 
-   }
-  
-   .request .input-block input {
-   outline: 0;
-    border: 0;
-    background-color: rgb(255, 255, 255); 
-    padding: 5px;
-    font-size: 14px;
-    font-family: "Nunito", sans-serif;
-  }
-          
-  input::placeholder {
-      color: #ccc;
-      opacity: 1;
-  }
-  
-  input{
-      display: block;
-  }
-  
-  /*Request*/
-  .request-block{
-      position: relative;
-      transform: translate(20%,7%);
-  border: 2px solid #B0A29B;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  transition: 0.3s;
-  background-color: #fff; 
-  width: 71%;
-  height: 20%;
-  overflow: auto;
-  }
-  
-  #heading{
-    text-align: center;
-      transform: translate(0,25%);
-  color: #8e5757;
-  z-index: 1;
-  margin-top: 10px;
-  }
-  
-  .request-p{ 
-  font-size: 13px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-  transition: 0.3s;
-  padding-top: 10px;
-  }
-  
-.request-p {
-      margin-left: 50px;
-       overflow: hidden;
-  }
-  
-  .request-p ::after{
-      content:"\a" ;
-      white-space: pre;
-  }
-  
-  .request-p span{
-      text-indent: none;
-      color: #806464;
-  }
-  
-  .ID{
-     float: left;
-     position: relative;
-     margin: 13px;
-     background-color: #E6D6D5;
-     border:#E6D6D5 30px solid;
-     border-radius: 4px;
-     background-attachment: fixed\;
-  }
-  
-  
-  .request-button{
-   float: right;
-   margin-right: 10px;
-   margin-top: 10px;
-   background-attachment: scroll;
-  }
-  
-      
-  .request-button1{
-      float: right;
-      margin-right: 10px;
-      margin-top: 10px;
-      background-attachment: scroll;
-     }
-     
-  .request-button2{
-      float: right;
-   margin-right: -75px;
-   margin-top: 40px;
-   background-attachment: fixed;
-  }
-  
-  
-  
-  .request-button2 button{
-      background-color: rgb(238, 96, 96);
-      width: 75px;
-      padding-left: 20%;
-      
-  }
-  
-  /*offer*/
-  .offer-p{ 
-      font-size: 13px;
-      font-family: "Nunito", sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.px;
-      transition: 0.3s;
-      padding-top: 40px;
-      }
-  
-   .offer-p ::after{
-          content:"\a" ;
-          white-space: pre;
-      }
-  
-      .request-button3{
-          float: right;
-          margin-right: -90px;
-          margin-top: 40px;
-      }
-  
-      .request-button4{
-          float: right;
-          margin-right: -90px;
-          margin-top: 70px;
-      }
-  
-      .request-button4 button{
-          background-color: rgb(238, 96, 96);
-      }
-  
-      .edit-button button{
-          padding: 9px 60px;
-      outline: none;
-      border: 0;
-      color: #fff;
-      border-radius: 40px;
-      background: #8c7569;
-      font-family: "Nunito", sans-serif;
-      transition: 0.3s;
-      cursor: pointer;
-      text-align: center;
-      position: relative;
-      margin-left: 43%;
-      }
-  
-      .edit-button button:hover {
-          background: #CEB0AE;
-      }
-
-      button{
-    position: relative;
-    padding: 5px 25px;
-    background-color:#a9807d ;
-    border: none;
-    border-radius: 50px;
+ .choose_button__label {
     cursor: pointer;
-    transition: all 0.3s ease 0s;
-    color: #F5F3F2; 
-    z-index: 2; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 5px 10px 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #40405B;
+    background-color: #ce9f9b47;
+    box-shadow: 0px 3px 5px #D3CCBF;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+  .choose_button__label:hover {
+    background: #CE9F9B;
+  }
+  
+  .choose_button__label  img{
+    height: 30px;
+    margin-right: 4px;
+  }
+
+ 
+.SignUP__img{
+    width: 20vh;
+    height: 20vh;
+    margin-left: 30%;
 }
 
-button:hover {
-    background-color: #CE9F9B;
-}
 
-button{
-  position: relative;
-  padding: 5px 25px;
-  background-color:#a9807d ;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  color: #F5F3F2; 
-  z-index: 2; 
-}
+  .input-block select {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #ccc;
+    opacity: 1;
+ }
+  iframe{
+    width:80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+  }
+  
+ 
+  #bio{
+    outline: none;
+    border: none;
+    font-size: 14px;
+  }
 
-button:hover {
-  background-color: #CE9F9B;
+  #bio::placeholder {
+    color: #ccc;
+    opacity: 1;
 }
-
-      
   
