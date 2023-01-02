@@ -1310,10 +1310,11 @@ article {
 .title-rate-sh h4{
 margin-left: 2%; 
 text-shadow: 3px 1px #E0E2EA;
+font-size:x-large;
 }
 .title-rate-sh p{
 margin-left: 4%; 
-font-size:x-large;
+font-size:large;
 text-shadow: 1px 1px 3px #E9E5DF;
 }
 .cont-sha{display:flex;}
