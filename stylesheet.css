@@ -1211,7 +1211,7 @@ background-attachment: fixed;
   margin-bottom: 3%;}
 
 h1 {
-  font-size: 45px;
+  font-size: 35px;
   margin: 0;
   font-weight: 600;
   color: #40405B;
@@ -1329,7 +1329,10 @@ text-shadow: 1px 1px 3px #E9E5DF;
 height: 80%;
 width: 80%;
 }
-
+.img-map-sh{
+  height: 60%;
+  width: 60%;
+  }
 .ratings-sh p{
 font-size: medium;
 color: #40405B;
@@ -1365,8 +1368,9 @@ background-color: #D3CCBF;
   justify-content:center;
   background-color: rgba(145, 22, 22, 0.829);}
 
-  .Map-pro{
-    align-items: center;
+  .Map-pro{padding-top: 3%;
+    height: 60%;
+    width: 180%;
   }
 
   
