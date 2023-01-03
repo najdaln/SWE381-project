@@ -1214,16 +1214,19 @@ background-attachment: fixed;
   font-size: medium;
       }
 
+ .btn{
+position: absolute;
+margin-top: 20%;
+margin-left: 7%;
+padding-left: 25px;
+ }
 
 .btn-contcat{
-  margin-left: 25%;
-  margin-top: 100%;
     background-color:#8064646b;
     border-radius: 30px;
     color: #40405B;
     font-size: large;
-    margin-left: -90px;
-    margin-top: 90%;
+   
 }
 .button-review {
   margin-left: 25%;
