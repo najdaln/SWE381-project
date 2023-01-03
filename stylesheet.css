@@ -960,7 +960,7 @@ margin-top: 10px;
 
 .request-p{ 
 font-size: 13px;
-font-family: "Nunito", sans-serif;
+text-shadow: 3px 3px #E0E2EA; 
 font-weight: 600;
 letter-spacing: 0.7px;
 transition: 0.3s;
@@ -1028,8 +1028,8 @@ background-attachment: fixed;
 ===============================================================================================================*/  
 .offer-p{ 
   font-size: 13px;
-  font-family: "Nunito", sans-serif;
   font-weight: 600;
+  text-shadow: 3px 3px #E0E2EA; 
   letter-spacing: 0.px;
   transition: 0.3s;
   padding-top: 35px;
