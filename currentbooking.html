@@ -13,28 +13,42 @@
       <body>
 
       <header id="navbar" class="page-header">
-         <nav class="navbar-container">
- <!-- logo -->
-       <a href="Home page.html" id="l"></a> <img class="logo" src="images/Logo.PNG" alt="logo"> </a>
-
- <!-- الزر الي يظهر عند التصغير  -->
-       <button type="button" id="navbar-toggle" aria-controls="navbar-menu"  aria-label="Toggle menu" aria-expanded="false">
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
-
- <!--العناصر الي بتوجد في الهيدر + في الزر عند التصغير  -->
-       <div id="navbar-menu" aria-labelledby="navbar-toggle">
-           <ul class="nav__links">
-              <li class="navbar-item"><a href="#" class="nav__link" >Home</a> </li>
-              <li class="navbar-item"><a href="#" class="nav__link">About us</a></li>
-               <li class="navbar-item"><a href="mailto:LearnInfo.sa@gmail.com" class="nav__link">Contact us</a></li>
-               <li class="navbar-item"> <a class="Sign" href="Sign in.html"><button>Login</button></a></li>
-             </ul>
-
-          </div>
-      </nav>
+        <nav class="navbar-container">
+            <!-- logo -->
+                  <a href="parent Home Page.html" id="l"><img class="logo" src="images/Logo.PNG" alt="logo"> </a>
+        
+            <!-- الزر الي يظهر عند التصغير  -->
+                  <button type="button" id="navbar-toggle" aria-controls="navbar-menu"  aria-label="Toggle menu" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+        
+            <!--العناصر الي بتوجد في الهيدر + في الزر عند التصغير  -->
+                  <div id="navbar-menu" aria-labelledby="navbar-toggle">
+                      <ul class="nav__links">
+                         <li class="navbar-item"><a href="parent Home Page.html" class="nav__link" >Home</a> </li>
+                         <li class="navbar-item"><a href="mailto:LearnInfo.sa@gmail.com" class="nav__link">Contact us</a></li>
+        
+                         <li class="nav-item dropdown">
+                            <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">My Bookings</a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="currentbooking.html">Current Bookings</a></li>
+                              <li><a class="dropdown-item" href="previousbooking.html">Previous Bookings</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="images/person_icon.png" class="My-Profile"> </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="Parentprofile.html">View Profile</a></li>
+                              <!--<li><a class="dropdown-item" href="EditParentProfile.html">Manage Profile</a></li>-->
+                              <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+                            </ul>
+                          </li>
+        
+                      </ul>
+                     </div>
+                 </nav>
      </header>
 
      <footer class="navbar" id="page_footer">
