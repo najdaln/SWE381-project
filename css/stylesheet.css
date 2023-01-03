@@ -357,20 +357,20 @@ footer img{
   ---------------------------------------------- hero--------------------------------------------------------- 
 ===============================================================================================================*/   
 #hero1{
-  background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/session.jpg);
+  background-image: linear-gradient(#8c75693f,#8c756925) ,url(../images/session.jpg);
   background-size:cover;
   background-position:center ;
   background-attachment:fixed;
  }
  
  #hero1-parent {
-   background-image: linear-gradient(#5c4d463f,#5c4d463f) ,url(images/h5.jpg);
+   background-image: linear-gradient(#5c4d463f,#5c4d463f) ,url(../images/h5.jpg);
    background-size:cover;
    background-position:center ;
    background-attachment:fixed;
   }
   #hero1-tutor{
-   background-image: linear-gradient(#5c4d463f,#5c4d463f) ,url(images/h2.jpg);
+   background-image: linear-gradient(#5c4d463f,#5c4d463f) ,url(../images/h2.jpg);
    background-size:cover;
    background-position:center ;
    background-attachment:fixed;
@@ -762,7 +762,7 @@ input::placeholder {
   ----------------------------------------------  Sign up page ---------------------------------------------- 
 ===============================================================================================================*/  
 #parent-signup{
-    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h1.jpg);
+    background-image: linear-gradient(#8c75693f,#8c756925) ,url(../images/h1.jpg);
     background-size:cover;
     background-position:center ;
     background-attachment:fixed;
@@ -770,7 +770,7 @@ input::placeholder {
 
 
 #tutor-signup{
-    background-image: linear-gradient(#8c75693f,#8c756925) ,url(images/h3.jpg);
+    background-image: linear-gradient(#8c75693f,#8c756925) ,url(../images/h3.jpg);
     background-size:cover;
     background-position:center ;
     background-attachment:fixed;
