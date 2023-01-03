@@ -991,8 +991,7 @@ padding-left: 2%;
 }
 
 .request-p span{
-  text-indent: none;
-  color: #806464;
+color: #806464;
 }
 
 .ID{
@@ -1002,7 +1001,7 @@ padding-left: 2%;
  background-color: #E6D6D5;
  border:#E6D6D5 30px solid;
  border-radius: 4px;
- background-attachment: fixed\;
+ background-attachment: fixed;
 }
 
 
@@ -1042,7 +1041,7 @@ background-attachment: fixed;
   font-size: 13px;
   font-weight: 600;
   text-shadow: 3px 3px #E0E2EA; 
-  letter-spacing: 0.px;
+  letter-spacing: 0;
   transition: 0.3s;
   padding-top: 30px;
   overflow: hidden;
