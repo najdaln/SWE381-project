@@ -1220,6 +1220,10 @@ margin-top: 20%;
 margin-left: 7%;
 padding-left: 25px;
  }
+ .btn-p-b{position: absolute;
+  margin-top: 17%;
+  margin-left: 10%;
+  padding-left: 25px;}
 
 .btn-contcat{
     background-color:#8064646b;
