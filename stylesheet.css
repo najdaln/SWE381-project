@@ -1430,8 +1430,8 @@ background-color: #D3CCBF;
 ---------------------------------------------- sign up as---------------------------------------------- 
 ===============================================================================================================*/  
   .sign-shad{
-  padding: 1%;
-  width: 70%;
+  padding: 1% 3% 1% 3%;
+  width: 75%;
   color:  #555;
   border-radius: 5px;
   display:inline-block;
@@ -1440,34 +1440,49 @@ background-color: #D3CCBF;
   border-radius: 50px;
   background: linear-gradient(to left,#40405B,#9f9fade2);
 }
-  .left-side-sh , .rigth-side-sh{
-    height: 40%;
-    width: 40%;
+ .left-side-sh-t ,.rigth-side-sh-p {
+    height:380px;
+    width: 380px;
     color:  #555;
-    border-radius: 5px;
     display: inline-block;
     border-radius: 50px;
     background: #E9E5DF ;
-    float: left;
+    margin-left: 4%;
   }
-  .left-side-sh{
-margin-left: 3%;
+  .rigth-side-sh-p{
+    margin-left: 18%;
   }
-  .rigth-side-sh{
-    margin-left:  7%;
-  }
+
 .pic-sign{
   width: 60%;
   height: 60%;
-  border-radius: 20% !important;
  margin-left: 15% ;}
 
  .parent-sign ,.tuter-sign {
   padding: 1%;
   padding-bottom:1% ;
-  margin-left: 30% ;
+  margin-left: 20% ;
+ }
+ .parent-sign .button-move ,.tuter-sign .button-move{
+  margin-left: 5% ;
  }
  .button-move{
+  padding:  8px 40px;
+    border: 0;
+    border-radius: 40px;
+    background: #b1a999;
+     cursor: pointer;
+    color:#40405B;
+    font-size: 160%;
+    font-weight: 600;
+    justify-content:center;
+    margin-right: 10%;
+ }
+ .sign-shad h2{
+  font-size: xx-large;
+  padding: 1%;
+  text-shadow: 3px 3px #E0E2EA; 
+  color: #40405B;
 
  }
   
