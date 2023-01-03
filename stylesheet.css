@@ -489,6 +489,7 @@ footer img{
  }
  
  #step-text{
+  text-transform: none;   
      font-size:18px;   
      font-weight: 400;
      color: #40405B ;
