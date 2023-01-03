@@ -975,7 +975,7 @@ text-shadow: 3px 3px #E0E2EA;
 font-weight: 600;
 letter-spacing: 0.7px;
 transition: 0.3s;
-padding-top: 10px;
+padding-top: 5px;
 overflow: scroll;
 padding-left: 2%;
 }
@@ -1044,7 +1044,7 @@ background-attachment: fixed;
   text-shadow: 3px 3px #E0E2EA; 
   letter-spacing: 0.px;
   transition: 0.3s;
-  padding-top: 35px;
+  padding-top: 30px;
   overflow: hidden;
   padding-left: 2%;
   }
