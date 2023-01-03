@@ -1438,7 +1438,7 @@ background-color: #D3CCBF;
   margin-bottom: 3%;
   margin-left: 10%;
   border-radius: 50px;
-  background-color: #E9E5DF;
+
 }
   .left-side-sh , .rigth-side-sh{
     height: 50%;
@@ -1447,8 +1447,7 @@ background-color: #D3CCBF;
     border-radius: 5px;
     display: inline-block;
     border-radius: 50px;
-    background:  #D3CCBF;
-    float: left;
+    background: linear-gradient(to bottom, #40405B,#9f9fade2);
   }
   .left-side-sh{
 margin-left: 3%;
