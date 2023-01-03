@@ -1438,25 +1438,25 @@ background-color: #D3CCBF;
   margin-bottom: 3%;
   margin-left: 10%;
   border-radius: 50px;
-
+  background: linear-gradient(to left,#40405B,#9f9fade2);
 }
   .left-side-sh , .rigth-side-sh{
-    height: 50%;
+    height: 40%;
     width: 40%;
     color:  #555;
     border-radius: 5px;
     display: inline-block;
     border-radius: 50px;
-    background: linear-gradient(to bottom, #40405B,#9f9fade2);
+    background: #E9E5DF ;
+    float: left;
   }
   .left-side-sh{
 margin-left: 3%;
   }
   .rigth-side-sh{
-    margin-left:  15%;
+    margin-left:  7%;
   }
 .pic-sign{
-  
   width: 60%;
   height: 60%;
   border-radius: 20% !important;
@@ -1464,7 +1464,7 @@ margin-left: 3%;
 
  .parent-sign ,.tuter-sign {
   padding: 1%;
-  padding-bottom: 2%;
+  padding-bottom:1% ;
   margin-left: 30% ;
  }
  .button-move{
