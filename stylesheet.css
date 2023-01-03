@@ -1040,6 +1040,7 @@ background-attachment: fixed;
   transition: 0.3s;
   padding-top: 35px;
   overflow: hidden;
+  padding-left: 2%;
   }
 
 .offer-p ::after{
@@ -1047,6 +1048,19 @@ background-attachment: fixed;
       white-space: pre;
   }
 
+  .peroffer{
+    width: 10%;
+    height: 10%;
+    border-radius: 50% !important;
+    border-color: #e6deda8e #40405B #40405B  #e6deda95 ;
+   border-style:inset;
+   border-width: 0.10cm;
+   margin-top: 1%;
+   margin-left: 1%;
+   float: left;
+   margin-bottom: 1%;
+  }
+  
   .request-button3{
       float: right;
       margin-right: -90px;
