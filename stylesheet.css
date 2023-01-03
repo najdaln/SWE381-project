@@ -1216,15 +1216,15 @@ background-attachment: fixed;
 
  .btn{
 position: absolute;
-margin-top: 20%;
-margin-left: 7%;
+margin-top: 21%;
+margin-left: 6%;
 padding-left: 25px;
  }
  .btn-p-b{position: absolute;
   margin-top: 17%;
-  margin-left: 10%;
-  padding-left: 25px;}
-
+  margin-left: 12%;
+  padding-left: 25px;
+ }
 .btn-contcat{
     background-color:#8064646b;
     border-radius: 30px;
