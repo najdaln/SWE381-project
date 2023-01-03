@@ -325,9 +325,7 @@ footer {
 
 }
 #page_footer{
-    background-color: #d3ccbf00;
-        background-color: #D3CCBF;
-
+    background-color: #D3CCBF;
     box-shadow:none;
     color: #40405B; 
     text-align: center;
@@ -336,6 +334,7 @@ footer {
     width: 100%;
     bottom: 0;
     z-index: -1;
+
 }
 
 footer p{
@@ -1454,7 +1453,7 @@ background-color: #D3CCBF;
   font-size: 160%;
   font-weight: 600;
   justify-content:center;
-  background-color: rgba(145, 22, 22, 0.829);}
+  background-color: rgb(238, 96, 96);}
 
   .Map-pro{padding-top: 3%;
     height: 60%;
