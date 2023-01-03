@@ -321,7 +321,6 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    z-index: -1;
 
 }
 #page_footer{
@@ -333,13 +332,15 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: -1;
+    z-index: -2;
 
 }
 
 footer p{
     margin-top: 0%;
     text-decoration:none;
+    z-index: -1;
+
 }
 
 footer img{
@@ -347,6 +348,8 @@ footer img{
     width: 25px;
     height: 25px;
     cursor: pointer;
+    z-index: -1;
+
 
 }
 
