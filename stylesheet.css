@@ -490,7 +490,7 @@ footer img{
  
  }
  
- #steptext{
+.steps .steptext{
   text-transform: none;   
      font-size:18px;   
      font-weight: 400;
@@ -1306,7 +1306,7 @@ padding-left: 25px;
   color:  #555;
   margin-bottom: 3%;}
 
-#sho-h {
+.sho-h {
   font-size: 35px;
   margin: 0;
   font-weight: 600;
