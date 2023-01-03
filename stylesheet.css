@@ -1127,17 +1127,7 @@ background-attachment: fixed;
   background-color: #E9E5DF;
  
 }
-.shad h1 {
-  font-family: "Nunito", sans-serif;
-  font-size: 40px;
-  margin: 0;
-  font-weight: 600;
-  color: #40405B;
-  padding-left: 10%;
-  padding-top: 1%;
-  text-shadow: 3px 3px #E0E2EA; 
-  display: inline-block;
-}
+
 
 /* ======================= 
      pic-left
