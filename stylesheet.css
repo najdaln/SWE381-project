@@ -858,6 +858,10 @@ input::placeholder {
     margin-bottom: 5%;
   }
   
+  .input-radio{
+    display:inline-block ;
+  }
+
  
   #bio{
     outline: none;
