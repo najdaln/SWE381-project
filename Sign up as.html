@@ -4,10 +4,7 @@
         <meta charset="UTF-8">
         
         <link rel ="stylesheet" href="stylesheet.css">
-        
-
-        <title>Sign Up As</title>
-
+        <title>Sign Up</title>
     </head>
 
       <body>
@@ -15,7 +12,7 @@
       <header id="navbar" class="page-header">
          <nav class="navbar-container">
  <!-- logo -->
-       <a href="Home page.html" id="l"></a> <img class="logo" src="images/Logo.PNG" alt="logo"> </a>
+       <a href="index.html" id="l"> <img class="logo" src="images/Logo.PNG" alt="logo"> </a>
 
  <!-- الزر الي يظهر عند التصغير  -->
        <button type="button" id="navbar-toggle" aria-controls="navbar-menu"  aria-label="Toggle menu" aria-expanded="false">
@@ -27,8 +24,7 @@
  <!--العناصر الي بتوجد في الهيدر + في الزر عند التصغير  -->
        <div id="navbar-menu" aria-labelledby="navbar-toggle">
            <ul class="nav__links">
-              <li class="navbar-item"><a href="#" class="nav__link" >Home</a> </li>
-              <li class="navbar-item"><a href="#" class="nav__link">About us</a></li>
+              <li class="navbar-item"><a href="index.html" class="nav__link" >Home</a> </li>
                <li class="navbar-item"><a href="mailto:LearnInfo.sa@gmail.com" class="nav__link">Contact us</a></li>
                <li class="navbar-item"> <a class="Sign" href="Sign in.html"><button>Login</button></a></li>
              </ul>
@@ -37,7 +33,28 @@
       </nav>
      </header>
 
-     <footer class="navbar" id="page_footer">
+  <div class="sign-shad" > 
+    <h1 id="sho-h2">Let's get you started! </h1><br><br>
+   <div class="left-side-sh-t">  <br>
+    
+       <img  src="images/tuts.png" alt="Picture" class="pic-sign" ><br>
+       <div class="tuter-sign"> 
+         <h2>I am a tutor!</h2> 
+
+    <a href="Sign up tutor.html"><button class="button-move" type="button">Sign Up</button></a></div>
+   </div>
+   
+       <div class="rigth-side-sh-p"><br>
+        
+            <img  src="images/prns.png" alt="Picture" class="pic-sign" ><br>
+            <div class="parent-sign"> 
+            <h2>I am a parent!</h2> 
+       <a href="Sign up parent.html" ><button class="button-move" type="button">Sign Up</button></a></div>
+   </div>
+
+</div> 
+
+<footer class="navbar" id="page_footer">
          <p>Copyright &copy; 2023 online tutoring platform <br>
          <a href="mailto:LearnInfo.sa@gmail.com" style=" color: #8c7569 ;">Contact Us
          <img src="images/email_icon.png" alt="Contact Us"></a></p>
@@ -45,29 +62,7 @@
          
       </footer>
 
+      <script src="index.js"></script>
 
-
-
-  <h1 id="sho-h">sign up </h1><br><br>
- 
-  <div class="sign-shad">
-   <div class="left-side-sh-t">  <br>
-    
-       <img  src="images/tuts.png" alt="Picture" class="pic-sign" ><br>
-       <div class="tuter-sign"> 
-         <h2>I am a tutor</h2> 
-    <button class="button-move" type="button"> join us </button></div>
-   </div>
-   
-       <div class="rigth-side-sh-p"><br>
-        
-            <img  src="images/prns.png" alt="Picture" class="pic-sign" ><br>
-            <div class="parent-sign"> 
-            <h2>I am a parent</h2> 
-        <button class="button-move" type="button">join us</button></div>
-   </div>
-
-             
-     
-
-</div>
+      </body>
+</html>
