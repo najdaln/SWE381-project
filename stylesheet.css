@@ -1127,7 +1127,7 @@ background-attachment: fixed;
   background-color: #E9E5DF;
  
 }
- h1 {
+.shad h1 {
   font-family: "Nunito", sans-serif;
   font-size: 40px;
   margin: 0;
@@ -1276,7 +1276,7 @@ background-attachment: fixed;
   color:  #555;
   margin-bottom: 3%;}
 
-h1 {
+.shad-pro h1 {
   font-size: 35px;
   margin: 0;
   font-weight: 600;
