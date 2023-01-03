@@ -977,6 +977,7 @@ letter-spacing: 0.7px;
 transition: 0.3s;
 padding-top: 10px;
 overflow: scroll;
+padding-left: 2%;
 }
 
 .modal-left .request-p {
