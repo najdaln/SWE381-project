@@ -46,7 +46,7 @@
              </nav>
     </header>
     
-    <form>
+    <form action >
         <div class="modal" id="modal-request">
           
             <div class="modal-left" id="modal-left-req">
@@ -101,7 +101,28 @@
             </div>
     </form>
     
-             
+    <?php
+             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                 if ( !( $database = mysqli_connect( "localhost", "root", "" ) ) )
+                    die( "<p>Could not connect to database</p>" );
+
+                 if ( !mysqli_select_db( $database, "Example") )
+                    die( "<p>Could not open URL database</p>" );
+
+                 $branch_name = $_POST['BName'];
+                 $hours = $_POST['hours'];
+                 $phone=$_POST['phone'];
+
+                 $query="INSERT INTO branch (branch_name, hours, phone) VALUES ('".$branch_name."','".$hours."','".$phone."');";
+                 $result=mysqli_query($database, $query);
+
+                 if($result)
+                     header("location: allbranches.php");
+        
+                 else
+                     echo "An error occured while inserting into the branch table.";
+             }
+        ?>   
     
     <footer class="navbar" id="page_footer">
         <p> &copy; 2023 Learn online tutoring platform <br>
