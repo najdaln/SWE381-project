@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['EmailTutor']))
-      header("Location: index.php?error=Please login again!");
+      header("Location: index.html?error=Please login again!");
 
     else
     {
