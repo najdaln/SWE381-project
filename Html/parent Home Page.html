@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION['EmailParent']))
+      header("Location: index.php?error=Please login again!");
+
+    else
+    {
+?>
 <!DOCTYPE html>
 <html lang="en"> 
     <head>
@@ -128,4 +137,8 @@
 <script src="../js/index.js"></script>
 </body> 
 </html>
+
+<?php
+}
+?>
 
