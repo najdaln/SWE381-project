@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['EmailParent']))
-      header("Location: index.php?error=Please login again!");
+      header("Location: index.html?error=Please login again!");
 
     else
     {
@@ -118,3 +118,4 @@
      <script src="../js/index.js"></script>
     </body>
 </html>
+<?php } ?>
