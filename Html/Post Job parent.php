@@ -26,7 +26,7 @@ die( "<p>Could not open URL database</p>" );
 $query1="SELECT * FROM User Parent WHERE Email='$_SESSION['EmailParent']' ";
 $result=mysqli_query($database, $query1);
 
- foreach($row as $key => $value)
+ foreach($result as $key => $value)
  {
     if($key > 1)
  $Parentname += $value;
