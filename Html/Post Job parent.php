@@ -150,11 +150,11 @@ $result=mysqli_query($database, $query1);
                         </div>
                     </nav>
            </header>");
-           print("<form action='Post Request! Parent.php' method='post'>
+           print("<form action='Post Job parent.php' method='post'>
            <div class='modal' id='modal-request'>
            <div class='modal-left' id='modal-left-req'>
                  <h1>New job request</h1>
-                 <p class="p">Please fill up your kid's information to request tutor :</p>");
+                 <p class='p'>Please fill up your kid's information to request tutor :</p>");
             
             foreach( $inputlist as $inputname => $inputalt) 
             {
@@ -190,10 +190,12 @@ $result=mysqli_query($database, $query1);
 
                 if( (!$typeclass && $counter == 0)|| (($currenttype == $typeclass)))
                 {
-                    print("selected>")
+                    print("selected>$currenttype</option>")
                 }
-                print("$currenttype</option>" );
+                else{
+                print(">$currenttype</option>" );
                ++$counter;
+            }
             } 
             print("</select></div>"); 
            
