@@ -58,13 +58,13 @@ if (isset($_POST["submitT"])) {
     $profilePhoto = '../images/' . $profilePhoto;
   }
 
-  if (!preg_match("/^[a-zA-Z]{1,30}$/", $fname)) {
-    $fnameerror = "\u{25CF} First name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+  if (!preg_match("/^[a-zA-Z]$/", $fname)) {
+    $fnameerror = "\u{25CF} First name should not contain special characters or digits.<br>";
     $allErrors = $allErrors . $fnameerror;
   }
 
-  if (!preg_match("/^[a-zA-Z]{1,30}$/", $lname)) {
-    $lnameerror = "\u{25CF} Last name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+  if (!preg_match("/^[a-zA-Z]$/", $lname)) {
+    $lnameerror = "\u{25CF} Last name should not contain special characters or digits.<br>";
     $allErrors = $allErrors . $lnameerror;
   }
 
