@@ -150,7 +150,7 @@ $result=mysqli_query($database, $query1);
                         </div>
                     </nav>
            </header>");
-           print("<form action='Post Job parent.php' method='post'>
+           print("<form action='PostJobParent.php' method='post'>
            <div class='modal' id='modal-request'>
            <div class='modal-left' id='modal-left-req'>
                  <h1>New job request</h1>
