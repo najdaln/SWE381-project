@@ -4,8 +4,8 @@
 <?php
 session_start();
 if(isset($_SESSION['User Tutor']))
-header("Location: tutorHomePage.php?error=1");
-else if(isset($_SESSION['User parent']))
+header("Location: TutorHomePage.php?error=1");
+else if(isset($_SESSION['User Parent']))
 header("Location: parentHome.php?error=1");
 Define("host","localhost");
 Define("Username", "root");
@@ -18,7 +18,7 @@ die("could not connect to database");
 
 
 $bool = false;
-$fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
+$fnameerror = $lnameerror = $iderror = $ageerror = $emailerror = $passwordderror = $phoneNumerror = $cityerror =$bioerror = $allErrors  = $emailTaken  = "";
 
 ?>
 
@@ -38,29 +38,119 @@ $fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
 <body >
 
 <?php
-if(isset($_POST["submitT"])){
+if (isset($_POST["submitT"])) {
 
-    $fname = isset($_POST["fname"])? $_POST["fname"]:"";
-    $lname = isset($_POST["lname"])? $_POST["lname"]:"";
-    $id = isset($_POST["id"])? $_POST["id"]:"";
-    $age = isset($_POST["age"])? $_POST["age"]:"";
-    $gender = isset($_POST["gender"])? $_POST["gender"]:"";
-    $email = isset($_POST["email"])? $_POST["email"]:"";
-    $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
-    $phoneNum = isset($_POST["phoneNum"])? $_POST["phoneNum"]:"";
-    $city = isset($_POST["city"])? $_POST["city"]:"";
-    $bio = isset($_POST["bio"])? $_POST["bio"]:"";
+  $fname = test_input($_POST['fname']);
+  $lname = test_input($_POST['name']);
+  $id = test_input($_POST['id']);
+  $age = test_input($_POST['age']);
+  $gender = test_input($_POST['gender']);
+  $email = test_input($_POST['email']);
+  $passwordd = test_input($_POST['passwordd']);
+  $phoneNum = test_input($_POST['phoneNum']);
+  $city = test_input($_POST['city']);
+  $bio = test_input($_POST['bio']);
+  $profilePhoto = $_FILES['imageT']['name'];
 
-    //for image
-$profilePhoto = $_FILES['imageP']['name'];
-                                           
-if(empty($profilePhoto))
-$profilePhoto = '../images/photo.png';
-else{
-  $profilePhoto = '../images/'.$profilePhoto;
+  if (empty($profilePhoto))
+    $profilePhoto = '../images/photo.png';
+  else {
+    $profilePhoto = '../images/' . $profilePhoto;
+  }
+
+  if (!preg_match("/^[a-zA-Z]{1,30}$/", $fname)) {
+    $fnameerror = "\u{25CF} First name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+    $allErrors = $allErrors . $fnameerror;
+  }
+
+  if (!preg_match("/^[a-zA-Z]{1,30}$/", $lname)) {
+    $lnameerror = "\u{25CF} Last name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+    $allErrors = $allErrors . $lnameerror;
+  }
+
+  $select = mysqli_query($connection, "SELECT * FROM `User Parent` WHERE email = '$email' ");
+
+  $select1 = mysqli_query($connection, "SELECT * FROM `User Tutor` WHERE email = '$email' ");
+
+  if (mysqli_num_rows($select) > 0 || mysqli_num_rows($select1) > 0) {
+    $emailTaken = "\u{25CF} An account with this email already exists! <br>";
+    $allErrors = $allErrors . $emailTaken;
+  }
+
+  if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,5}$/ix", $email)) {
+    $emailerror = "\u{25CF} Invalid Email Address!<br>";
+    $allErrors = $allErrors . $emailerror;
+
+
+
+    if ((strlen($passwordd) < 8) || !preg_match("/[!”#\$\%\&\'\(\)\*\+,-\.\/:;<=>\?@\[\]\^_\{\|\}~`]{1,}/", $passwordd)) {
+      $passwordError = "\u{25CF} Password should be at least 8 characters and should contain at least one special character.<br>";
+      $allErrors = $allErrors . $passwordderror;
+    }
+
+    if (!preg_match("/^[0-9]{10}$/", $id)) {
+      $idError = "\u{25CF} National ID / Iqama should consist of 10 digits only.<br>";
+      $allErrors = $allErrors . $iderror;
+    }
+
+    if ($age < 18) {
+      $ageerror = "\u{25CF} Age should be greater than or equal to 18.<br>";
+      $allErrors = $allErrors . $ageerror;
+    }
+
+    if ($age > 100) {
+      $ageerror = "\u{25CF} Age should be less than or equal to 100.<br>";
+      $allErrors = $allErrors . $ageerror;
+    }
+
+    if (!preg_match("/^05+[0-9]{8}$/", $phoneNum)) {
+      $phoneNumerror = "\u{25CF} Invalid Phone! Phone number must be in the format 05XXXXXXXX.<br>";
+      $allErrors = $allErrors . $phoneNumerror;
+    }
+
+
+
+    if (!preg_match("/^[0-9a-zA-Z!”#\$\%\&\'\(\)\*\+,-\.\/:;<=>\?@\[\]\^_\{\|\}~`\n\r ]{25,}$/", $bio)) {
+      $bioerror = "\u{25CF} Bio should contain at least 25 characters.<br>";
+      $allErrors = $allErrors . $bioerror;
+    }
+    if (strlen($allErrors) > 0 || !empty($allErrors)) {
+      $bool = true;
+    } else {
+      $insert = mysqli_query($connection, "INSERT INTO `User Tutor`(fname, lname,id,age,gender,email,passwordd,phoneNum,city,bio ,photo) VALUES('$fname','$lname', '$id','$age','$gender', '$email'  , '$passwordd' , '$phoneNum','$city','$bio','$profilePhoto')");
+
+      if ($insert) {
+
+        $_SESSION['success'] = "Sign up successfully!";
+        header('location: signin.php?success=1');
+        $connection->close();
+
+
+      } else {
+        header('location: signUpTutor.php?error=1');
+        $connection->close();
+      }
+
+    }
+
+  }
+}
+
+function test_input($data) {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
 } 
 
-    $iserror = false;
+
+
+
+
+
+
+
+    /*$iserror = false;
     $formerrors = array("fnameerror"=>false, "lnameerror"=>false,"iderror"=>false,"ageerror"=>false,"gendererror"=>false,"emailerror"=>false,"passwordderror"=>false,"phoneNumerror"=>false,"cityerror"=>false,"bioerror"=>false);
     
     $inputlist= array("fname"=>"First Name","lname"=>"Last Name","id"=>"id","age"=>"age","gender"=>"gender","email"=>"email","passwordd"=>"passwordd","phoneNum"=>"phoneNum","city"=>"city","bio"=>"bio")
@@ -148,11 +238,11 @@ else{
     
           if($iserror){
             print("<p>Fields need to be filled in properly</p>")
-          }
+          }*/
 
 
       
-      }
+      
 
     
 ?>
@@ -202,25 +292,31 @@ else{
                 <img path src="../images/photo.png" alt="photo icon">
               <span>choose profile photo</span></label> </div></label>
           
-      
+      <!--php here is from the second try-->
+      <div id="errorMessage"> 
+                        <?php
+                          if($bool)
+                            echo "<div class='alert alert-danger' role='alert'> <p>".$allErrors."</p></div>";
+                        ?>
+                        </div>
 
 
             <div class="input-block">
                 <label  class="input-label">First Name:</label>
-                 <input required type="text" name="First Name" id="firstname" placeholder="First Name">
+                 <input required type="text" name="First Name" id="firstname" placeholder="First Name" value="<?php if(isset($fname)) echo $fname; ?>">
              </div>
              <div class="input-block">
              <label class="input-label">Last Name:</label>
-             <input required type="text" name="Last Name" id="lastname" placeholder="Last Name">
+             <input required type="text" name="Last Name" id="lastname" placeholder="Last Name" value="<?php if(isset($lname)) echo $lname; ?>">
              </div>
             <div class="input-block">
             <label class="input-label">ID:</label>
-            <input required type="text" name="id" id="lastname" placeholder="ID">
+            <input required type="text" name="id" id="lastname" placeholder="ID" value="<?php if(isset($id)) echo $id; ?>">
              </div>
 
            <div class="input-block">
                 <label class="input-label">Age: </label>
-                <input name="age" type="number" placeholder="Age">
+                <input name="age" type="number" placeholder="Age" value="<?php if(isset($age)) echo $age; ?>">
             </div>
 
             <div class="radio">
@@ -237,16 +333,16 @@ else{
 
         <div class="input-block">
 			  <label for="email" class="input-label">Email:</label>
-			   <input type="email" name="email" id="email" placeholder="Email">
+			   <input type="email" name="email" id="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>">
 		   </div>
 			<div class="input-block">
 		 	   <label for="password" class="input-label">Password:</label>
-			   <input type="password" name="passwordd" id="password" placeholder="Password">
+			   <input type="password" name="passwordd" id="password" placeholder="Password" value="<?php if(isset($passwordd)) echo $passwordd; ?>">
 		    </div>
 
          <div class="input-block">
             <label class="input-label" for="typePhone">Phone Number:</label>
-            <input type="tel" name="phoneNum" id="typePhone" class="form-control" maxlength="10" minlength="10" placeholder="Phone Number">
+            <input type="tel" name="phoneNum" id="typePhone" class="form-control" maxlength="10" minlength="10" placeholder="Phone Number" value="<?php if(isset($phoneNum)) echo $phoneNum; ?>">
           </div>
 
             <div class="input-block"> 
@@ -295,7 +391,7 @@ else{
           </div>
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='tutor Home Page.html';" value="Sign Up" name ="submitT" /><br>
+                <input class="input-button" type="button" onclick="location.href='tutor Home Page.html';" value="Sign Up" name ="submitT" ><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
@@ -314,5 +410,62 @@ else{
   </footer>
  
  <script src="../js/index.js"></script>
+
+
+
+ <script>
+
+
+//Upload picture
+function changePic(){
+    const img = document.querySelector('#img1');
+    const file = document.querySelector('#image');
+   
+    file.addEventListener('change', function(){
+
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+   const reader = new FileReader(); 
+
+   reader.addEventListener('load', function(){
+       img.setAttribute('src', reader.result);
+   });
+
+   reader.readAsDataURL(choosedFile);
+  
+}});
+
+}
+
+
+</script>
+<script>
+$('#bio').keyup(function() {
+    
+    var characterCount = $(this).val().length,
+        current = $('#current'),
+        maximum = $('#maximum'),
+        theCount = $('#the-count');
+      
+    current.text(characterCount);
+
+    
+        
+  });
+  </script>
+
+<?php
+    if(isset($_GET['error']))
+    $err = true;
+    else
+    $err = false;
+    ?>  
+    <?php
+    if($err)
+    echo "<script type='text/javascript'> $(window).load(function(){ $('#errorModal').modal('show'); }); </script>";
+    ?>
+
 </body>
 </html>
