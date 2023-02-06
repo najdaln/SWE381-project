@@ -22,10 +22,12 @@ header("Location: parentHomePage.php?error=1");
       var1 = document.getElementById("tutorRadio");
       var2 = document.getElementById("parentRadio");
       if (var1.checked == true) {
+        $select1 = mysqli_query($connection, "SELECT * FROM `User Tutor` WHERE email = '$email' ");
         document.myform.action = "TutorHomePage.php";
 
       }
       else {
+        $select = mysqli_query($connection, "SELECT * FROM `User Parent` WHERE email = '$email' ");
         document.myform.action = "parentHomePage.php";
       }
     }
@@ -89,27 +91,16 @@ header("Location: parentHomePage.php?error=1");
           <label class="input-label" for="parentRadio">Parent</label>
         </div><br>
 
-        <?php
-
-       if (!( $database = mysqli_connect( "localhost", "root", "" )))
-       die( "<p>Could not connect to database</p>" );
-
-      if (!mysqli_select_db( $database, "Example" ))
-       die( "<p>Could not open URL database</p>" );   
-
-
-        $select = mysqli_query($connection, "SELECT * FROM `User Parent` WHERE email = '$email' ");
-
-        $select1 = mysqli_query($connection, "SELECT * FROM `User Tutor` WHERE email = '$email' ");
-      
         
-
-        ?>
 
         <div class="modal-buttons">
           <!-- <a href="" class="">Forgot your password?</a> -->
           <button class="input-button" type="submit">Login</button>
         </div>
+      
+      
+
+
         <p class="sign-up">Don't have an account? <a href="Sign up as.html">Sign up now</a></p>
       </div>
       <div class="modal-right">
