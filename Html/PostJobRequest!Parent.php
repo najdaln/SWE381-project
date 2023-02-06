@@ -55,7 +55,7 @@
              </nav>
     </header>
     
-    <form action="Post Job parent.php" method="post">
+    <form action="PostJobParent.php" method="post">
         <div class="modal" id="modal-request">
           
             <div class="modal-left" id="modal-left-req">
