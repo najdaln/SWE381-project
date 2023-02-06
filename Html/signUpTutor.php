@@ -6,7 +6,7 @@ session_start();
 if(isset($_SESSION['User Tutor']))
 header("Location: TutorHomePage.php?error=1");
 else if(isset($_SESSION['User Parent']))
-header("Location: parentHome.php?error=1");
+header("Location: parentHomePage.php?error=1");
 Define("host","localhost");
 Define("Username", "root");
 Define("Password", "");
