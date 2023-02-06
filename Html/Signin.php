@@ -90,10 +90,20 @@ header("Location: parentHomePage.php?error=1");
         </div><br>
 
         <?php
-        $email =  $_POST["email"];
-        $passwordd= $_POST["password"];
-        $_SESSION["password"]= $passwordd;
-        $_SESSION["email"] = $email;
+
+       if (!( $database = mysqli_connect( "localhost", "root", "" )))
+       die( "<p>Could not connect to database</p>" );
+
+      if (!mysqli_select_db( $database, "Example" ))
+       die( "<p>Could not open URL database</p>" );   
+
+
+        $select = mysqli_query($connection, "SELECT * FROM `User Parent` WHERE email = '$email' ");
+
+        $select1 = mysqli_query($connection, "SELECT * FROM `User Tutor` WHERE email = '$email' ");
+      
+        
+
         ?>
 
         <div class="modal-buttons">
