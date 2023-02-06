@@ -277,7 +277,7 @@ return $data;
  </nav>
 </header>
 
-<form metod="post">
+<form metod="post" action="">
 	<div class="modal" id="modal_sign_up">
 		<div class="modal-left" >
         <h1>Sign up</h1>
@@ -391,7 +391,7 @@ return $data;
           </div>
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='tutor Home Page.html';" value="Sign Up" name ="submitT" ><br>
+                <input class="input-button" type="submit" value="Sign Up" name ="submitT" ><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
