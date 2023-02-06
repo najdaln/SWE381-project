@@ -9,8 +9,8 @@ else if(isset($_SESSION['User Parent']))
 header("Location: parentHome.php?error=1");
 Define("host","localhost");
 Define("Username", "root");
-Define("Password", "root");
-Define("db", "Learn-3");
+Define("Password", "");
+Define("db", "Learn");
 $connection = mysqli_connect(host, Username, Password, db);
 
  if(!$connection)
