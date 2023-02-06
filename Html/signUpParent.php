@@ -212,7 +212,7 @@ if(mysqli_num_rows($select) > 0 || mysqli_num_rows($select1) > 0 )
  </nav>
 </header>
 
-<form>
+<form metod="post">
 	<div class="modal" id="modal_sign_up">
 		<div class="modal-left" >
         <h1>Sign up</h1>
