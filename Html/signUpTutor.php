@@ -38,7 +38,7 @@ $fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
 <body >
 
 <?php
-if(isset($_POST["submit"])){
+if(isset($_POST["submitT"])){
 
     $fname = isset($_POST["fname"])? $_POST["fname"]:"";
     $lname = isset($_POST["lname"])? $_POST["lname"]:"";
@@ -295,7 +295,7 @@ else{
           </div>
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='tutor Home Page.html';" value="Sign Up" /><br>
+                <input class="input-button" type="button" onclick="location.href='tutor Home Page.html';" value="Sign Up" name ="submitT" /><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
