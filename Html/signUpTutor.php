@@ -1,4 +1,32 @@
 <!DOCTYPE html>
+
+
+<?php
+session_start();
+if(isset($_SESSION['User Tutor']))
+header("Location: tutorHomePage.php?error=1");
+else if(isset($_SESSION['User parent']))
+header("Location: parentHome.php?error=1");
+Define("host","localhost");
+Define("Username", "root");
+Define("Password", "");
+Define("db", "Learn-3");
+$connection = mysqli_connect(host, Username, Password, db);
+
+ if(!$connection)
+die("could not connect to database");
+
+
+$bool = false;
+$fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
+
+?>
+
+
+
+
+
+
 <html lang="en">
 <head >
 	<meta charset="UTF-8">
@@ -10,95 +38,123 @@
 <body >
 
 <?php
-    $Tname = isset($_POST["Tname"])? $_POST["Tname"]:"";
-    $Tlname = isset($_POST["Tlname"])? $_POST["Tlname"]:"";
-    $Tid = isset($_POST["Tid"])? $_POST["Tid"]:"";
-    $Tage = isset($_POST["Tage"])? $_POST["Tage"]:"";
-    $Tgender = isset($_POST["Tgender"])? $_POST["Tgender"]:"";
-    $Temail = isset($_POST["Temail"])? $_POST["Temail"]:"";
-    $Tpassword = isset($_POST["Tpassword"])? $_POST["Tpassword"]:"";
-    $TphoneNum = isset($_POST["TphoneNum"])? $_POST["TphoneNum"]:"";
-    $Tcity = isset($_POST["Tcity"])? $_POST["Tcity"]:"";
-    $Tbio = isset($_POST["Tbio"])? $_POST["Tbio"]:"";
+if(isset($_POST["submit"])){
+
+    $fname = isset($_POST["fname"])? $_POST["fname"]:"";
+    $lname = isset($_POST["lname"])? $_POST["lname"]:"";
+    $id = isset($_POST["id"])? $_POST["id"]:"";
+    $age = isset($_POST["age"])? $_POST["age"]:"";
+    $gender = isset($_POST["gender"])? $_POST["gender"]:"";
+    $email = isset($_POST["email"])? $_POST["email"]:"";
+    $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
+    $phoneNum = isset($_POST["phoneNum"])? $_POST["phoneNum"]:"";
+    $city = isset($_POST["city"])? $_POST["city"]:"";
+    $bio = isset($_POST["bio"])? $_POST["bio"]:"";
+
+    //for image
+$profilePhoto = $_FILES['imageP']['name'];
+                                           
+if(empty($profilePhoto))
+$profilePhoto = '../images/photo.png';
+else{
+  $profilePhoto = '../images/'.$profilePhoto;
+} 
 
     $iserror = false;
-    $formerrors = array("Tnameerror"=>false, "Tlnameerror"=>false,"Tiderror"=>false,"Tageerror"=>false,"Tgendererror"=>false,"Temailerror"=>false,"Tassworderror"=>false,"TphoneNumerror"=>false,"Tcityerror"=>false,"Tbioerror"=>false);
+    $formerrors = array("fnameerror"=>false, "lnameerror"=>false,"iderror"=>false,"ageerror"=>false,"gendererror"=>false,"emailerror"=>false,"passwordderror"=>false,"phoneNumerror"=>false,"cityerror"=>false,"bioerror"=>false);
     
-    $inputlist= array("Tname"=>"First Name","Tlname"=>"Last Name","Tid"=>"id","Tage"=>"age","Tgender"=>"gender","Temail"=>"email","Tpassword"=>"password","TphoneNum"=>"phoneNum","Tcity"=>"city","Tbio"=>"bio")
+    $inputlist= array("fname"=>"First Name","lname"=>"Last Name","id"=>"id","age"=>"age","gender"=>"gender","email"=>"email","passwordd"=>"passwordd","phoneNum"=>"phoneNum","city"=>"city","bio"=>"bio")
 
-    if(isset( $_POST["submit"] ))
-    {
-      if ( $Tname=="" ){
-        $formerrors["Tnameerror"] = true;
+    
+      if ( $fname=="" ){
+        $formerrors["fnameerror"] = true;
         $iserror = true;
           } 
 
-      if ( $Tlname=="" ){
-        $formerrors["Tlnameerror"] = true;
+      if ( $lname=="" ){
+        $formerrors["lnameerror"] = true;
         $iserror = true;
           } 
               
-      if ( $Tid=="" ){
-          $formerrors["Tiderror"] = true;
+      if ( $id=="" ){
+          $formerrors["iderror"] = true;
           $iserror = true;
            } 
 
-     if ( $Tage=="" ){
-        $formerrors["Tageerror"] = true;
+     if ( $age=="" ){
+        $formerrors["ageerror"] = true;
         $iserror = true;
           }      
 
-    if ( $Tgender=="" ){
-        $formerrors["Tgendererror"] = true;
+    if ( $gender=="" ){
+        $formerrors["gendererror"] = true;
         $iserror = true;
           }    
-   if ( $Temail=="" ){
-        $formerrors["Temailerror"] = true;
+   if ( $email=="" ){
+        $formerrors["emailerror"] = true;
         $iserror = true;
          } 
               
-    if ( $Tpassword=="" ){
-        $formerrors["Tassworderror"] = true;
+    if ( $passwordd=="" ){
+        $formerrors["passwordderror"] = true;
         $iserror = true;
           }  
+
+
+    if(strlen($passwordd) < 8){
+       $formerrors["passwordderror"] =true;
+       $iserror=true;
+          }      
           
+
+
+    if ( $phoneNum=="" ){
+     $formerrors["phoneNumerror"] = true;
+    $iserror = true;
+          }  
           
-    if ( !preg_match("/^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$/",$TphoneNum ))
+    if ( !preg_match("/^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$/",$phoneNum ))
     {
-        $formerrors["TphoneNumerror"] = true;
+        $formerrors["phoneNumerror"] = true;
         $iserror = true;
          } 
 
-    if ( $Tcity=="" ){
-        $formerrors["Tcityerror"] = true;
+    if ( $city=="" ){
+        $formerrors["cityerror"] = true;
         $iserror = true;
           } 
 
-    if ( $Tbio=="" ){
-        $formerrors["Tbioerror"] = true;
+    if ( $bio=="" ){
+        $formerrors["bioerror"] = true;
         $iserror = true;
         } 
+      
+      
+        if(!$iserror)
+        {
+          $insert = mysqli_query($connection, "INSERT INTO `User Tutor`(fname, lname,id,age,gender, email, passwordd,phoneNum ,city,bio, photo) VALUES('$fname','$lname','$id','$age','$gender','$email','$passwordd' ,'$phoneNum', '$city','$bio','$profilePhoto' )");
+          
+          if($insert){
+            $_SESSION['success'] ="Sign up successfully!";
+            header('location: TutorHomePage.php?success=1');
+            $connection -> close();}
+    
+          else{
+            header('location: SignUpTutor.php?error=1');
+            $connection -> close();
+            }
+        
+        }
+    
+          if($iserror){
+            print("<p>Fields need to be filled in properly</p>")
+          }
+
+
+      
       }
 
     
-
-    //for data base is not correct
-    
-    /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if ( !( $database = mysqli_connect( "localhost", "root", "" ) ) )
-           die( "<p>Could not connect to database</p>" );
-
-        if ( !mysqli_select_db( $database, "Example") )
-           die( "<p>Could not open URL database</p>" );
-        $query="INSERT INTO branch (branch_name, hours, phone) VALUES ('".$branch_name."','".$hours."','".$phone."');";
-        $result=mysqli_query($database, $query);
-
-        if($result)
-            header("location: allbranches.php");
-
-        else
-            echo "An error occured while inserting into the branch table.";
-    }*/
 ?>
 
 
@@ -185,7 +241,7 @@
 		   </div>
 			<div class="input-block">
 		 	   <label for="password" class="input-label">Password:</label>
-			   <input type="password" name="password" id="password" placeholder="Password">
+			   <input type="password" name="passwordd" id="password" placeholder="Password">
 		    </div>
 
          <div class="input-block">
