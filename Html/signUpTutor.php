@@ -277,7 +277,7 @@ return $data;
  </nav>
 </header>
 
-<form>
+<form metod="post">
 	<div class="modal" id="modal_sign_up">
 		<div class="modal-left" >
         <h1>Sign up</h1>
