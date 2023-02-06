@@ -212,7 +212,7 @@ if(mysqli_num_rows($select) > 0 || mysqli_num_rows($select1) > 0 )
  </nav>
 </header>
 
-<form metod="post">
+<form metod="post" action="">
 	<div class="modal" id="modal_sign_up">
 		<div class="modal-left" >
         <h1>Sign up</h1>
@@ -299,7 +299,7 @@ if(mysqli_num_rows($select) > 0 || mysqli_num_rows($select1) > 0 )
           
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='parent Home Page.html';" value="Sign Up" name ="submitP" ><br>
+                <input class="input-button" type="submit" value="Sign Up" name ="submitP" ><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
