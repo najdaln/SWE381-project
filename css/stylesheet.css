@@ -1538,3 +1538,6 @@ text-transform:capitalize;
    text-align: center;
 }
   
+  #errorMessage{
+    color: red ;
+}  
