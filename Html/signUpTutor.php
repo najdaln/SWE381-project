@@ -40,16 +40,16 @@ $fnameerror = $lnameerror = $iderror = $ageerror = $emailerror = $passwordderror
 <?php
 if (isset($_POST["submitT"])) {
 
-  $fname = test_input($_POST['fname']);
-  $lname = test_input($_POST['name']);
-  $id = test_input($_POST['id']);
-  $age = test_input($_POST['age']);
-  $gender = test_input($_POST['gender']);
-  $email = test_input($_POST['email']);
-  $passwordd = test_input($_POST['passwordd']);
-  $phoneNum = test_input($_POST['phoneNum']);
-  $city = test_input($_POST['city']);
-  $bio = test_input($_POST['bio']);
+  $fname = isset($_POST["fname"])? $_POST["fname"]:"";
+    $lname = isset($_POST["lname"])? $_POST["lname"]:"";
+    $id = isset($_POST["id"])? $_POST["id"]:"";
+    $age = isset($_POST["age"])? $_POST["age"]:"";
+    $gender = isset($_POST["gender"])? $_POST["gender"]:"";
+    $email = isset($_POST["email"])? $_POST["email"]:"";
+    $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
+    $phoneNum = isset($_POST["phoneNum"])? $_POST["phoneNum"]:"";
+    $city = isset($_POST["city"])? $_POST["city"]:"";
+    $bio = isset($_POST["bio"])? $_POST["bio"]:"";
   $profilePhoto = $_FILES['imageT']['name'];
 
   if (empty($profilePhoto))
