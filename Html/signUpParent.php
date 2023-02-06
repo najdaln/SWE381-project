@@ -1,4 +1,29 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+if(isset($_SESSION['User Tutor']))
+header("Location: tutorHomePage.php?error=1");
+else if(isset($_SESSION['User Parent']))
+header("Location: parentHome.php?error=1");
+Define("host","localhost");
+Define("Username", "root");
+Define("Password", "");
+Define("db", "Learn-3");
+$connection = mysqli_connect(host, Username, Password, db);
+
+ if(!$connection)
+die("could not connect to database");
+
+
+$bool = false;
+$fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
+
+?>
+
+
+
+
 <html lang="en">
 <head >
 	<meta charset="UTF-8">
@@ -11,64 +36,90 @@
 
 
 <?php
-    $Pname = isset($_POST["Pname"])? $_POST["Pname"]:"";
-    $Plname = isset($_POST["Plname"])? $_POST["Plname"]:"";
-    $Pemail = isset($_POST["Pemail"])? $_POST["Pemail"]:"";
-    $Ppassword = isset($_POST["Ppassword"])? $_POST["Ppassword"]:"";
-    $Pcity = isset($_POST["Pcity"])? $_POST["Pcity"]:"";
+
+if(isset($_POST["submit"])){
+
+    $fname = isset($_POST["fname"])? $_POST["fname"]:"";
+    $lname = isset($_POST["lname"])? $_POST["lname"]:"";
+    $email = isset($_POST["email"])? $_POST["email"]:"";
+    $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
+    $city = isset($_POST["city"])? $_POST["city"]:"";
+
+
+//for image
+$profilePhoto = $_FILES['imageP']['name'];
+                                           
+ if(empty($profilePhoto))
+ $profilePhoto = '../images/photo.png';
+ else{
+   $profilePhoto = '../images/'.$profilePhoto;
+ } 
+
+
 
     $iserror = false;
-    $formerrors = array("Pnameerror"=>false, "Plnameerror"=>false,"Pemailerror"=>false,"Ppassworderror"=>false,"Pcityerror"=>false);
+    $formerrors = array("fnameerror"=>false, "lnameerror"=>false,"emailerror"=>false,"passwordderror"=>false,"cityerror"=>false);
     
-    $inputlist= array("Pname"=>"First Name","Plname"=>"Last Name","Pemail"=>"email","Ppassword"=>"password","Pcity"=>"city",)
+    $inputlist= array("fname"=>"First_Name","lname"=>"Last_Name","email"=>"email","passwordd"=>"passwordd","city"=>"city",)
 
-   if(isset( $_POST["submit"] ))
-    {
-      if ( $Pname=="" ){
-        $formerrors["Pnameerror" ] = true;
+   
+      if ( $fname=="" ){
+        $formerrors["fnameerror" ] = true;
         $iserror = true;
           } 
 
-      if ( $Plname=="" ){
-        $formerrors["Plnameerror" ] = true;
+      if ( $lname=="" ){
+        $formerrors["lnameerror" ] = true;
         $iserror = true;
           } 
               
-      if ( $Pemail=="" ){
-          $formerrors["Pemailerror" ] = true;
+      if ( $email=="" ){
+          $formerrors["emailerror" ] = true;
           $iserror = true;
            } 
 
-     if ( $Ppassword=="" ){
-        $formerrors["Ppassworderror" ] = true;
+     if ( $passwordd=="" ){
+        $formerrors["passwordderror" ] = true;
         $iserror = true;
           }      
 
-    if ( $Pcity=="" ){
-        $formerrors["Pcityerror" ] = true;
+    if ( $city=="" ){
+        $formerrors["cityerror" ] = true;
         $iserror = true;
           }    
+      
+
+      if(strlen($passwordd) < 8){
+        $formerrors["passwordderror"] =true;
+        $iserror=true;
+      }
+    
+    
+
+
+      if(!$iserror)
+    {
+      $insert = mysqli_query($connection, "INSERT INTO `User Parent`(fname, lname, email, passwordd ,city, photo) VALUES('$fname','$lname','$email', '$passwordd' , '$city','$profilePhoto' )");
+      
+      if($insert){
+        $_SESSION['success'] ="Sign up successfully!";
+        header('location: parentHomePage.php?success=1');
+        $connection -> close();}
+
+      else{
+        header('location: SignUpParent.php?error=1');
+        $connection -> close();
+        }
+    
+    }
+
+      if($iserror){
+        print("<p>Fields need to be filled in properly</p>")
       }
 
     
-
-    //for data base is not correct
-
-    /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if ( !( $database = mysqli_connect( "localhost", "root", "" ) ) )
-           die( "<p>Could not connect to database</p>" );
-
-        if ( !mysqli_select_db( $database, "Example") )
-           die( "<p>Could not open URL database</p>" );
-        $query="INSERT INTO branch (branch_name, hours, phone) VALUES ('".$branch_name."','".$hours."','".$phone."');";
-        $result=mysqli_query($database, $query);
-
-        if($result)
-            header("location: allbranches.php");
-
-        else
-            echo "An error occured while inserting into the branch table.";
-    }*/
+  }
+    
 ?>
 
 
@@ -133,7 +184,7 @@
 		   </div>
 			<div class="input-block">
 		 	   <label for="password" class="input-label">Password</label>
-			   <input type="password" name="password" id="password" placeholder="Password">
+			   <input type="password" name="passwordd" id="password" placeholder="Password">
 		    </div>
             <div class="input-block"> 
             <label class="input-label">City:</label>
