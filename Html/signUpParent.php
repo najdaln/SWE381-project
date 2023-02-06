@@ -39,12 +39,11 @@ $fnameerror = $lnameerror = $emailerror  = $passwordderror = $cityerror= $emailT
 
 
 if(isset($_POST["submitP"])){
-    $fname = test_input($_POST['fname']);
-    $lname = test_input($_POST['name']);
-    $email = test_input($_POST['email']);
-    $passwordd = test_input($_POST['passwordd']);
-    $city = test_input($_POST['city']);;
-
+  $fname = isset($_POST["fname"])? $_POST["fname"]:"";
+  $lname = isset($_POST["lname"])? $_POST["lname"]:"";
+  $email = isset($_POST["email"])? $_POST["email"]:"";
+  $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
+  $city = isset($_POST["city"])? $_POST["city"]:"";
 
 //for image
 $profilePhoto = $_FILES['imageP']['name'];
