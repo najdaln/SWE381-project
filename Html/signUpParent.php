@@ -37,7 +37,7 @@ $fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
 
 <?php
 
-if(isset($_POST["submit"])){
+if(isset($_POST["submitP"])){
 
     $fname = isset($_POST["fname"])? $_POST["fname"]:"";
     $lname = isset($_POST["lname"])? $_POST["lname"]:"";
@@ -229,7 +229,7 @@ $profilePhoto = $_FILES['imageP']['name'];
           
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='parent Home Page.html';" value="Sign Up" ><br>
+                <input class="input-button" type="button" onclick="location.href='parent Home Page.html';" value="Sign Up"  name ="submitP"><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
