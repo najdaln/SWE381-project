@@ -3,21 +3,21 @@
 <?php
 session_start();
 if(isset($_SESSION['User Tutor']))
-header("Location: tutorHomePage.php?error=1");
+header("Location: TutorHomePage.php?error=1");
 else if(isset($_SESSION['User Parent']))
-header("Location: parentHome.php?error=1");
+header("Location: parentHomePage.php?error=1");
 Define("host","localhost");
 Define("Username", "root");
 Define("Password", "");
 Define("db", "Learn-3");
-$connection = mysqli_connect(host, Username, Password, db);
+$connection = mysqli_connect(host, Username,Password,db);
 
  if(!$connection)
 die("could not connect to database");
 
 
 $bool = false;
-$fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
+$fnameerror = $lnameerror = $emailerror  = $passwordderror = $cityerror= $emailTaken = $allErrors= "";
 
 ?>
 
@@ -37,13 +37,13 @@ $fnameerror = $lnameerror = $emailError  = $passworddError = $cityerror= "";
 
 <?php
 
-if(isset($_POST["submitP"])){
 
-    $fname = isset($_POST["fname"])? $_POST["fname"]:"";
-    $lname = isset($_POST["lname"])? $_POST["lname"]:"";
-    $email = isset($_POST["email"])? $_POST["email"]:"";
-    $passwordd = isset($_POST["passwordd"])? $_POST["passwordd"]:"";
-    $city = isset($_POST["city"])? $_POST["city"]:"";
+if(isset($_POST["submitP"])){
+    $fname = test_input($_POST['fname']);
+    $lname = test_input($_POST['name']);
+    $email = test_input($_POST['email']);
+    $passwordd = test_input($_POST['passwordd']);
+    $city = test_input($_POST['city']);;
 
 
 //for image
@@ -56,14 +56,75 @@ $profilePhoto = $_FILES['imageP']['name'];
  } 
 
 
+ if (!preg_match("/^[a-zA-Z]{1,30}$/",$fname)){ 
+  $fnameerror = "\u{25CF} First name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+  $allErrors = $allErrors . $nameerror;
+}
 
-    $iserror = false;
+if (!preg_match("/^[a-zA-Z]{1,30}$/",$lname)){ 
+  $lnameerror = "\u{25CF} Last name should be between 1-30 letters, and should not contain special characters or digits.<br>";
+  $allErrors = $allErrors . $lnameerror;
+}
+
+$select = mysqli_query($connection, "SELECT * FROM `User Parent` WHERE email = '$email' ");
+
+$select1 = mysqli_query($connection, "SELECT * FROM `User Tutor` WHERE email = '$email' ");
+
+if(mysqli_num_rows($select) > 0 || mysqli_num_rows($select1) > 0 )
+     {
+       $emailTaken = "\u{25CF} An account with this email already exists! <br>";
+       $allErrors = $allErrors . $emailTaken;
+        }
+
+ if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,5}$/ix" , $email)) {
+          $emailerror = "\u{25CF} Invalid Email Address!<br>";
+          $allErrors = $allErrors . $emailerror;
+      }
+
+  if ((strlen($passwordd)<8) || !preg_match("/[!”#\$\%\&\'\(\)\*\+,-\.\/:;<=>\?@\[\]\^_\{\|\}~`]{1,}/", $passwordd) ){ 
+        $passwordderror = "\u{25CF} Password should be at least 8 characters and should contain at least one special character.<br>";
+        $allErrors = $allErrors . $passwordderror;
+    }
+
+  if (strlen($allErrors) > 0 || !empty($allErrors)){
+      $bool = true; }
+
+  else {
+                      
+    $insert = mysqli_query($connection, "INSERT INTO `User Parent`(fname, lname,email, passwordd,city, photo) VALUES('$fname','$lname','$email' ,'$passwordd' , '$city','$profilePhoto')");
+
+      if($insert){
+        $_SESSION['success'] ="Sign up successfully!";
+        //might change to signin.php
+        header('location: signin.html?success=1');
+        $connection -> close();}
+        else{
+        header('location: signUpParent.php?error=1');
+        $connection -> close();
+        }   
+
+      }
+                          
+                          
+                      
+    }
+    
+    
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }   
+
+
+    /*$iserror = false;
     $formerrors = array("fnameerror"=>false, "lnameerror"=>false,"emailerror"=>false,"passwordderror"=>false,"cityerror"=>false);
     
     $inputlist= array("fname"=>"First_Name","lname"=>"Last_Name","email"=>"email","passwordd"=>"passwordd","city"=>"city",)
 
-   
-      if ( $fname=="" ){
+    
+      if ($fname=="" ){
         $formerrors["fnameerror" ] = true;
         $iserror = true;
           } 
@@ -115,10 +176,10 @@ $profilePhoto = $_FILES['imageP']['name'];
 
       if($iserror){
         print("<p>Fields need to be filled in properly</p>")
-      }
+      }*/
 
     
-  }
+  
     
 ?>
 
@@ -165,26 +226,35 @@ $profilePhoto = $_FILES['imageP']['name'];
             <label class="choose_button__label" for="file-input">
                 <img path src="../images/photo.png" alt="parent icon">
               <span>choose profile photo</span></label> </div> </label> 
+
+
+              <!--php here is from the second try-->
+              <div id="errorMessage"> 
+                        <?php
+                          if($bool)
+                            echo "<div class='alert alert-danger' role='alert'> <p>".$allErrors."</p></div>";
+                        ?>
+                        </div>
           
 
 
 
             <div class="input-block">
-                <label for="email" class="input-label">First Name:</label>
-                 <input required type="text"  name="First Name" id="firstname" placeholder="First Name">
+                <label class="input-label">First Name:</label>
+                 <input required type="text"  name="First Name" id="firstname" placeholder="First Name" value="<?php if(isset($fname)) echo $fname; ?>">
              </div>
              <div class="input-block">
              <label class="input-label">Last Name:</label>
-             <input required type="text" name="Last Name" id="lastname" placeholder="Last Name">
+             <input required type="text" name="Last Name" id="lastname" placeholder="Last Name"  value="<?php if(isset($lname)) echo $lname; ?>" >
              </div>
 
 		   <div class="input-block">
 			  <label for="email" class="input-label">Email</label>
-			   <input type="email" name="email" id="email" placeholder="Email">
+			   <input type="email" name="email" id="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" >
 		   </div>
 			<div class="input-block">
 		 	   <label for="password" class="input-label">Password</label>
-			   <input type="password" name="passwordd" id="password" placeholder="Password">
+			   <input type="password" name="passwordd" id="password" placeholder="Password" value="<?php if(isset($passwordd)) echo $passwordd; ?>">
 		    </div>
             <div class="input-block"> 
             <label class="input-label">City:</label>
@@ -229,7 +299,7 @@ $profilePhoto = $_FILES['imageP']['name'];
           
 
 		    <div class="modal-buttons">
-                <input class="input-button" type="button" onclick="location.href='parent Home Page.html';" value="Sign Up"  name ="submitP"><br>
+                <input class="input-button" type="button" onclick="location.href='parent Home Page.html';" value="Sign Up" name ="submitP" ><br>
 		    </div>
             <p class="sign-up">I have an account? <a href="Sign in.html">Login </a></p>
      
@@ -248,6 +318,48 @@ $profilePhoto = $_FILES['imageP']['name'];
  </footer>
  
  <script src="../js/index.js"></script>
+
+
+ <script>
+
+//Upload image
+      function changePic(){
+const img = document.querySelector('#img1');
+const file = document.querySelector('#image');
+
+
+file.addEventListener('change', function(){
+ 
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+
+       
+    }
+});
+
+}
+
+</script>
+
+<?php
+    if(isset($_GET['error']))
+    $err = true;
+    else
+    $err = false;
+    ?>  
+    <?php
+    if($err)
+    echo "<script type='text/javascript'> $(window).load(function(){ $('#errorModal').modal('show'); }); </script>";
+    ?>
 
 </body>
 </html>
