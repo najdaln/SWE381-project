@@ -228,11 +228,11 @@ function test_input($data) {
       
            <div class="file-input">
 
-       <img src="../images/person_icon.png" alt="a default picture of a user" class="SignUP__img" id="defaultimg"><br>
+       <img src="../images/person_icon.png" alt="a default picture of a user"  class="per" style=" width: 20vh; height: 20vh;  margin-left: 23% ;" id="defaultimg"><br>
            <label class="choose_button__label" for="img">
                 <img path src="../images/photo.png" alt="parent icon">
               <span>choose profile photo</span></label>
-            <input type="file" accept="image/*" name="img" id="img" class="choose_button"   onclick='changePic()' >
+            <input type="file" accept="image/*" name="img" id="img" class="choose_button"   onclick='changePic()' value="<?php echo $imageName; ?>" >
             </div> 
     
          <div class="input-block" > 
